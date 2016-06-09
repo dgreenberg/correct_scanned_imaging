@@ -405,7 +405,7 @@ wI = x_frac_comp .* ((y_frac_comp) .* template(matind) + ...
     y_frac .* template(matindpthp1));
 difference_image = data_bm - wI; %calculate difference image by subtracting template from warped frame
 difference_image(mask_comp) = 0;
-errval = mean(difference_image(:) .^ 2);
+errval = mean(difference_image(mask) .^ 2);
 corr = quickcorr(wI(mask), data_bm(mask));
 while iter <= max_iter && corr < haltcorr
     iter = iter + 1;
@@ -491,7 +491,7 @@ while iter <= max_iter && corr < haltcorr
             y_frac .* template(matindpthp1));
         difference_image = data_bm - wI; %calculate difference image by subtracting template from warped frame
         difference_image(mask_comp) = 0;
-        errvalnew = mean(difference_image(:) .^ 2);
+        errvalnew = mean(difference_image(mask) .^ 2);
         if errvalnew <= errval || all(abs(delta_p) < move_thresh)
             break;
         end
