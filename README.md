@@ -1,3 +1,8 @@
+***
+This function has been replaced with [https://github.com/dgreenberg/steadyscan]
+***
+
+
 Corrects horizontal motion artifacts in imaging acquired through a scanning process.
 Motion much faster than the imaging frame rate can be detected and corrected.
 
